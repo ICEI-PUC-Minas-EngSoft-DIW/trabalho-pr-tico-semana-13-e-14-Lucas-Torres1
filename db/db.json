@@ -34,5 +34,47 @@
       "imagem": "images/top20.jpg",
       "imagemAlt": "Ranking dos mais ouvidos"
     }
+  ],
+  "eventos": [
+    {
+      "id": 1,
+      "nome": "Trap Night SP",
+      "artista": "DJ X & Convidados",
+      "data": "2025-11-20",
+      "genero": "Trap",
+      "latitude": -23.5489,
+      "longitude": -46.6388,
+      "local": "Casa de Shows Centro"
+    },
+    {
+      "id": 2,
+      "nome": "Rock ao Vivo",
+      "artista": "Banda Thunder",
+      "data": "2025-11-22",
+      "genero": "Rock",
+      "latitude": -23.5632,
+      "longitude": -46.6544,
+      "local": "Arena Musical Paulista"
+    },
+    {
+      "id": 3,
+      "nome": "Teste1",
+      "artista": "teste1",
+      "data": "2025-11-29",
+      "genero": "teste1",
+      "latitude": -23.5445,
+      "longitude": -46.6333,
+      "local": "teste1"
+    },
+    {
+      "id": 4,
+      "nome": "teste2",
+      "artista": "teste2",
+      "data": "2025-11-23",
+      "genero": "teste2",
+      "latitude": -23.5471,
+      "longitude": -46.6312,
+      "local": "teste2"
+    }
   ]
 }

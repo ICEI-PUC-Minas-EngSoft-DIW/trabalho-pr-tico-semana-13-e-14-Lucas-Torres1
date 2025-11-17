@@ -9,10 +9,10 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: Lucas Torres Neves
+- Matricula: 905488
+- Proposta de projeto escolhida: Faixas de músicas
+- Breve descrição sobre seu projeto: Site com faixas e álbuns
 
 **Print da tela com a implementação**
 
