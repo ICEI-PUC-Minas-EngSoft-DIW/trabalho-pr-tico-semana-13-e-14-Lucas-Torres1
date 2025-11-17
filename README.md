@@ -14,10 +14,12 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 - Proposta de projeto escolhida: Faixas de músicas
 - Breve descrição sobre seu projeto: Site com faixas e álbuns
 
-**Print da tela com a implementação**
+<img src ="public\images\tela.PNG">
+Mapa de mapbox, com eventos proximos de musica
 
-<< Coloque aqui uma breve explicação da implementação feita nessa etapa>>
-
-<<  COLOQUE A IMAGEM TELA 1 AQUI >>
-
-<<  COLOQUE A IMAGEM TELA 2 AQUI >>
+<img src ="public\images\mapteste1.PNG">
+<img src ="public\images\mapteste2.PNG">
+<img src ="public\images\mapteste3.PNG">
+<img src ="public\images\mapteste4.PNG">
+<img src ="public\images\mapteste5.PNG">
+<img src ="public\images\mapteste6.PNG">
