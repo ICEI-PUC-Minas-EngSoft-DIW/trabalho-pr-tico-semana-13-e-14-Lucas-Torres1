@@ -14,5 +14,25 @@
       "nome": "Usuario Comum",
       "email": "user@abc.com"
     }
+  ],
+  "itens": [
+    {
+      "id": "artistas-alta",
+      "titulo": "Artistas em Alta",
+      "destaque": true,
+      "resumo": "Nomes que impulsionam o Trap nacional.",
+      "descricao": "Lista e comentários sobre artistas em alta...",
+      "imagem": "images/fototrapers.png",
+      "imagemAlt": "Artistas brasileiros de Trap"
+    },
+    {
+      "id": "top-20",
+      "titulo": "Top 20 Trap Brasil",
+      "destaque": false,
+      "resumo": "Artistas brasileiros mais ouvidos do gênero Trap.",
+      "descricao": "Ranking de artistas e faixas mais populares...",
+      "imagem": "images/top20.jpg",
+      "imagemAlt": "Ranking dos mais ouvidos"
+    }
   ]
 }

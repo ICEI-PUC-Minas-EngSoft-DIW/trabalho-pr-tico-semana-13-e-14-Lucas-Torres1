@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Itens</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body class="bg-success">
+  <header class="bg-black text-white text-center py-4">
+    <h1 id="titulo">Cadastrar item</h1>
+    <nav style="margin-top:12px;">
+      <a href="index.html" class="btn-voltar">← Voltar</a>
+    </nav>
+  </header>
+
+  <main class="container my-4">
+    <form id="form" class="card bg-dark text-white p-4">
+      <label class="form-label">ID (slug)
+        <input name="id" class="form-control" placeholder="ex.: origem-trap" required>
+      </label>
+
+      <label class="form-label">Título
+        <input name="titulo" class="form-control" required>
+      </label>
+
+      <label class="form-label">Resumo
+        <input name="resumo" class="form-control" placeholder="Resumo curto do item">
+      </label>
+
+      <label class="form-label">Descrição
+        <textarea name="descricao" class="form-control" rows="4" placeholder="Descrição completa"></textarea>
+      </label>
+
+      <label class="form-label">URL da Imagem
+        <input name="imagem" class="form-control" placeholder="images/...">
+      </label>
+
+      <label class="form-label">Alt da Imagem
+        <input name="imagemAlt" class="form-control" placeholder="Texto alternativo da imagem">
+      </label>
+
+      <label class="form-check">
+        <input id="destaque" type="checkbox" class="form-check-input">
+        Destaque
+      </label>
+
+      <div class="mt-3" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button type="submit" class="btn btn-light">Salvar</button>
+        <button type="button" id="btnExcluir" class="btn btn-outline-danger">Excluir</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    const API = 'http://localhost:3001/itens';
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    const form = document.getElementById('form');
+    const btnExcluir = document.getElementById('btnExcluir');
+    const titulo = document.getElementById('titulo');
+
+    async function carregarSeEdicao(){
+      if(!id){ btnExcluir.style.display='none'; return; }
+      titulo.textContent = 'Editar item';
+      const r = await fetch(`${API}/${id}`);
+      if(!r.ok){ alert('Item não encontrado'); location.href='index.html'; return; }
+      const item = await r.json();
+      form.id.value = item.id;
+      form.id.readOnly = true;
+      form.titulo.value = item.titulo || '';
+      form.resumo.value = item.resumo || '';
+      form.descricao.value = item.descricao || '';
+      form.imagem.value = item.imagem || '';
+      form.imagemAlt.value = item.imagemAlt || '';
+      document.getElementById('destaque').checked = !!item.destaque;
+    }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const payload = {
+        id: form.id.value.trim(),
+        titulo: form.titulo.value.trim(),
+        resumo: form.resumo.value.trim(),
+        descricao: form.descricao.value.trim(),
+        imagem: form.imagem.value.trim(),
+        imagemAlt: form.imagemAlt.value.trim(),
+        destaque: document.getElementById('destaque').checked
+      };
+      if(!payload.id || !payload.titulo){ alert('Preencha ID e Título.'); return; }
+      const method = id ? 'PUT' : 'POST';
+      const url = id ? `${API}/${id}` : API;
+      console.log('Salvar ->', { metodo: id ? 'PUT' : 'POST', url: id ? `${API}/${id}` : API });
+
+      const resp = await fetch(url, {
+        method,
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
+      });
+      if(!resp.ok){ alert('Erro ao salvar (veja Network)'); return; }
+      location.href = 'index.html';
+    });
+
+    btnExcluir.addEventListener('click', async ()=>{
+      if(!id) return;
+      if(!confirm('Tem certeza que deseja excluir?')) return;
+      const resp = await fetch(`${API}/${id}`, { method: 'DELETE' });
+      if(!resp.ok){ alert('Erro ao excluir'); return; }
+      location.href = 'index.html';
+    });
+
+    carregarSeEdicao();
+  </script>
+</body>
+</html>
